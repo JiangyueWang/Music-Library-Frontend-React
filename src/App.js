@@ -24,16 +24,23 @@ function App() {
     getAllSongs();
   }
 
-  async function searchResult(searchValue) {
+  const [searchType, setSearchType] = useState('')
+  const [song, setSong] = useState('')
+  async function searchResult(searchValue, serachType) {
    // console.log('app.js search value', searchValue);
-    const stringValue = String(searchValue);
-    //console.log('string value in app.js',stringValue)
-    const song = await axios.get(`http://127.0.0.1:8000/api/music/${stringValue}`);
-    console.log(song)
+   setSearchType(serachType)
+   console.log('searchType', serachType);
+   if (serachType === 'id') {
+    // const stringValue = String(searchValue);
+    // console.log(stringValue);
+    const song = await axios.get(`http://127.0.0.1:8000/api/music/${searchValue}`);
+    console.log(song);
+    setSong(song.data)}
+   
   }
   return (
     <div>
-      <SearchSong searchResult={searchResult}/>
+      <SearchSong searchResult={searchResult} searchType={searchType}/>
       <br></br>
       <AddANewSong addSong={addSong}/>
 

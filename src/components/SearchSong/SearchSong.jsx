@@ -6,7 +6,7 @@ const SearchSong = (props) => {
     // console.log('serachType',searchType)
     function handleSearchSubmit(event) {
         event.preventDefault();
-        props.searchResult(searchValue)
+        props.searchResult(searchValue, searchType)
     }
     return ( 
         <div>
