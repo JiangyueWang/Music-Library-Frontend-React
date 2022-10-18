@@ -2,7 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import DisplayMusic from "./components/DisplayMusic/DisplayMusic";
 import AddANewSong from "./components/AddANewSong/AddANewSong";
-
+import SearchSong from "./components/SearchSong/SearchSong";
 function App() {
 
   const [songs, setSongs] = useState([]);
@@ -14,8 +14,8 @@ function App() {
 
   async function getAllSongs() {
     // use axios.get to retrive all songs stored in the database
-    const musicDataBase = await axios.get('http://127.0.0.1:8000/api/music/');
-    setSongs(musicDataBase.data)
+    const musicDataBase = await axios.get(`http://127.0.0.1:8000/api/music/`);
+    setSongs(musicDataBase.data);
   }
 
   async function addSong(newSongInfo) {
@@ -24,9 +24,19 @@ function App() {
     getAllSongs();
   }
 
+  async function searchResult(searchValue) {
+   // console.log('app.js search value', searchValue);
+    const stringValue = String(searchValue);
+    //console.log('string value in app.js',stringValue)
+    const song = await axios.get(`http://127.0.0.1:8000/api/music/${stringValue}`);
+    console.log(song)
+  }
   return (
     <div>
+      <SearchSong searchResult={searchResult}/>
+      <br></br>
       <AddANewSong addSong={addSong}/>
+
       <DisplayMusic songs={songs} />
     </div>
   );
