@@ -14,8 +14,8 @@ function App() {
 
   async function getAllSongs() {
     // use axios.get to retrive all songs stored in the database
-    const musicDataBase = await axios.get(`http://127.0.0.1:8000/api/music/`);
-    setSongs(musicDataBase.data);
+    const response = await axios.get(`http://127.0.0.1:8000/api/music/`);
+    setSongs(response.data);
   }
 
   async function addSong(newSongInfo) {
@@ -25,25 +25,27 @@ function App() {
   }
 
   const [searchType, setSearchType] = useState('')
-  const [song, setSong] = useState('')
+
   async function searchResult(searchValue, serachType) {
-   // console.log('app.js search value', searchValue);
-   setSearchType(serachType)
-   console.log('searchType', serachType);
-   if (serachType === 'id') {
-    // const stringValue = String(searchValue);
-    // console.log(stringValue);
-    const song = await axios.get(`http://127.0.0.1:8000/api/music/${searchValue}`);
-    console.log(song);
-    setSong(song.data)}
-   
+    // console.log('app.js search value', searchValue);
+    setSearchType(serachType)
+    //  console.log('searchType', serachType);
+    if (serachType === 'id') {
+    const response = await axios.get(`http://127.0.0.1:8000/api/music/${searchValue}/`);
+    setSongs(response.data);
+  }
+  else {
+    // console.log(`http://127.0.0.1:8000/api/music?${serachType}=${searchValue}`)
+    const response = await axios.get(`http://127.0.0.1:8000/api/music?${serachType}=${searchValue}`);
+    setSongs(response.data);
+  }
+  
   }
   return (
     <div>
       <SearchSong searchResult={searchResult} searchType={searchType}/>
       <br></br>
       <AddANewSong addSong={addSong}/>
-
       <DisplayMusic songs={songs} />
     </div>
   );
