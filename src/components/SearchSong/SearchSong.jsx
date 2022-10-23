@@ -3,11 +3,12 @@ import React, { useState } from 'react';
 const SearchSong = (props) => {
     const [searchType, setSearchType] = useState('');
     const [searchValue, setSearchValue] = useState('');
-    // console.log('serachType',searchType)
+    
     function handleSearchSubmit(event) {
         event.preventDefault();
-        props.searchResult(searchValue, searchType)
+        props.searchResult(searchValue, searchType);
     }
+
     return ( 
         <div>
             <select value={searchType} onChange={(event) => setSearchType(event.target.value)}>

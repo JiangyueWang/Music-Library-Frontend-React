@@ -1,27 +1,31 @@
+import axios from 'axios';
 import React, { useState } from 'react';
 
-const AddANewSong = (props) => {
+
+const UpdateSongInfoForm = (props) => {
+    
     const[title, setTitle] = useState('');
     const[artist, setArtist] = useState('');
     const[album, setAlbum] = useState('');
     const[release_date, setReleaseDate] = useState('');
     const[genre, setGenre] = useState('');
-    
-    function handleAddNewSongForm(event) {
+
+    async function handleUpdateSongFormSubmission(event) {
         event.preventDefault();
-        const newSongInfo = {
+        const updateSongInfo = {
             "title": title,
             "artist": artist,
             "album": album,
             "release_date": release_date,
             "genre": genre,
         };
-        props.addSong(newSongInfo);
-
+     
+        await axios.put(`http://127.0.0.1:8000/api/music/${props.updateSongIdProp}/`, updateSongInfo)
+        props.UpdateSongInfoFormSubmitProp()
+        // window.location.reload(true);
     }
-
     return (
-        <form onSubmit={handleAddNewSongForm}>
+        <form onSubmit={handleUpdateSongFormSubmission}>
             <label>Title</label>
             <input onChange={(event) => setTitle(event.target.value)}></input>
             <label>Artist</label>
@@ -34,7 +38,8 @@ const AddANewSong = (props) => {
             <input onChange={(event) => setGenre(event.target.value)}></input>
             <button type='submit'>add a new song</button>
         </form>
+    
     );
 }
  
-export default AddANewSong;
+export default UpdateSongInfoForm;
