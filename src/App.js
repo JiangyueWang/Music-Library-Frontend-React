@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import NavBar from "./components/NavBar/NavBar";
 import DisplayMusic from "./components/DisplayMusic/DisplayMusic";
 import AddANewSong from "./components/AddANewSong/AddANewSong";
 import SearchSong from "./components/SearchSong/SearchSong";
@@ -72,6 +73,7 @@ function App() {
 
   return (
     <div>
+      <NavBar />
       <button type="button" onClick={() => chooseSearchSong()}>Search for a song</button>
       <button type="button" onClick={() => chooseAddSong()}>Add a new song </button>
 
