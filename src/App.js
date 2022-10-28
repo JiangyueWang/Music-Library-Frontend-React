@@ -24,19 +24,32 @@ function App() {
   }
 
   const [searchType, setSearchType] = useState('')
-  
   async function searchResult(searchValue, serachType) {
-
     setSearchType(serachType);
 
     if (serachType === 'id') {
-    const response = await axios.get(`http://127.0.0.1:8000/api/music/${searchValue}/`);
-    setSongs(response.data);
+      try {
+        const response = await axios.get(`http://127.0.0.1:8000/api/music/${searchValue}/`);
+        setSongs(response.data);
+      } catch(err) {
+        alert(err.response.data.detail);
+      } finally {
+        // console.log(response.data)
+      }
+      
+    
     }
     else {
-      // console.log(`http://127.0.0.1:8000/api/music?${serachType}=${searchValue}`)
-      const response = await axios.get(`http://127.0.0.1:8000/api/music/?${serachType}=${searchValue}`);
-      setSongs(response.data);
+      // console.log(`http://127.0.0.1:8000/api/music/?${serachType}=${searchValue}`)
+      try {
+        const response = await axios.get(`http://127.0.0.1:8000/api/music/?${serachType}=${searchValue}`);
+        setSongs(response.data);
+      } catch(err) {
+        alert(err.response.data.detail)
+      } finally {
+        //
+      }
+      
     }
   }
 
@@ -53,12 +66,6 @@ function App() {
     setAddSong(!showAddSong);
   }
 
-  const updateDisplaySong = () => {
-    getAllSongs();
-    
-    console.log('get all song runs again')
-    console.log(songs)
-  }
   return (
     <div>
       <p>What would you like to do with you music library?</p>
@@ -76,7 +83,7 @@ function App() {
           <AddANewSong addSong={addSong}/>  
       }
 
-      <DisplayMusic songs={songs} updateDisplaySongProp={updateDisplaySong}/>
+      <DisplayMusic songs={songs} getAllSongsProp={getAllSongs}/>
     </div>
   );
 }
