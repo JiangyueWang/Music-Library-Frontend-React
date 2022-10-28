@@ -7,10 +7,17 @@ import { faArrowRight} from '@fortawesome/free-solid-svg-icons'
 const NavBar = () => {
     return ( 
     <nav>
-        <FontAwesomeIcon icon={faMusic} size="4x"/>
+        <div  className='logo'>
+         <FontAwesomeIcon icon={faMusic} size="4x"/>   
+        </div>
+        
         <h1> Music Library </h1>
-        <FontAwesomeIcon icon={faArrowRight} size="4x"/>
-        <FontAwesomeIcon icon={faRightFromBracket} size="4x"/>
+        <div className='sign-in-logos'>
+            <FontAwesomeIcon icon={faArrowRight} size="4x" className='before-signin'/>
+            <FontAwesomeIcon icon={faRightFromBracket} size="4x" className='signin'/>
+            
+        </div>
+
     </nav>);
 }
  

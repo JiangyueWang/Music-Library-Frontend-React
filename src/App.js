@@ -4,6 +4,7 @@ import NavBar from "./components/NavBar/NavBar";
 import DisplayMusic from "./components/DisplayMusic/DisplayMusic";
 import AddANewSong from "./components/AddANewSong/AddANewSong";
 import SearchSong from "./components/SearchSong/SearchSong";
+import './App.css';
 function App() {
 
   // delcatre state variable song to hold all the songs from database

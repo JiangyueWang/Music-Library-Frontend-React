@@ -19,7 +19,7 @@ const Song = (props) => {
     return (
         <div>
             <ul>
-                <li>{song_id}</li>
+                {/* <li>{song_id}</li> */}
                 <li>{props.song.title}</li>
                 <li>{props.song.artist}</li>
                 <li>{props.song.album}</li>
