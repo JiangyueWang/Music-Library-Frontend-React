@@ -22,18 +22,26 @@ li {
     font-size: 1.5rem;
     /* float:left; */
 }
+.flex {
+    display: flex;
+    justify-content: center;
+}
 
 /* navbar */
 nav {
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
     align-items: center;
     padding: 2rem 0;
-    margin-bottom: 3rem;
+    /* margin-bottom: 3rem; */
     background-color: #373e98;
+    border-width: 0px 0px 2px 0px;
+    border-style: solid;
+    border-color: #373e98 #373e98 #fff #373e98 ;
 }
 .logo {
-
+    width: 85px;
     padding: 1rem 2rem;
     margin-left: 3rem;
     color: #373e98;
@@ -42,7 +50,7 @@ nav {
     border-radius: 50px 20px;
 }
 .sign-in-logos{
-    width: 6%;
+    width: 75px;
     margin-right: 3rem;
     padding: 1rem 2rem;
     color: #373e98;
@@ -59,4 +67,51 @@ nav {
 }
 .sign-in-logos:hover .signin{
     display: inline-block;
+}
+.search-add-song-wrapper {
+    background-color: #373e98;
+    padding: 2rem 0;
+
+}
+.search-add-a-song-buttons button{
+    background-color: #FEE36E;
+    padding: 0.5rem 1.8rem;
+    border: solid white 1px;
+    border-radius: 1.5rem;
+    font-size: larger;
+    font-weight: 700;
+}
+.search-add-a-song-buttons {
+    display: flex;
+    justify-content: space-around;
+    padding-bottom: 2rem;
+} 
+
+.search-song-form-wrapper {
+   justify-content: flex-start;
+}
+.select {
+    width: 200px;
+
+}
+.add-new-song-form {
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.add-new-song-form-label {
+    color: #fff;
+    font-size: small;
+    font-weight: 700;
+    margin: 0.5rem 0;
+}
+/* .add-new-song-form .form-group {
+    margin: 0 13rem;
+    margin-bottom: 1rem;
+    margin-left: 20rem;
+} */
+
+.add-new-song-button {
+    margin-top: 2rem;
 }

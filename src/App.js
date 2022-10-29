@@ -75,20 +75,22 @@ function App() {
   return (
     <div>
       <NavBar />
-      <button type="button" onClick={() => chooseSearchSong()}>Search for a song</button>
-      <button type="button" onClick={() => chooseAddSong()}>Add a new song </button>
+      <div className="search-add-song-wrapper">
+        <div className="search-add-a-song-buttons">
+          <button type="button" onClick={() => chooseSearchSong()}>Search for a song</button>
+          <button type="button" onClick={() => chooseAddSong()}>Add a new song </button>
+        </div>
+        <div className="search-add-song-forms">
+          { showSearchSong 
+              && <SearchSong searchResult={searchResult} searchType={searchType}/>
+          }
 
-      
-      { showSearchSong 
-          && <SearchSong searchResult={searchResult} searchType={searchType}/>
-      }
+          {showAddSong && 
+              <AddANewSong addSong={addSong}/>  
+          }
+        </div>
 
-      <br></br>
-      
-      {showAddSong && 
-          <AddANewSong addSong={addSong}/>  
-      }
-
+      </div>
       <DisplayMusic songs={songs} getAllSongsProp={getAllSongs}/>
     </div>
   );
