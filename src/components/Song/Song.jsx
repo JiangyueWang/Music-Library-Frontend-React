@@ -17,22 +17,31 @@ const Song = (props) => {
     }
 
     return (
-        <div>
-            <ul>
-                {/* <li>{song_id}</li> */}
-                <li>{props.song.title}</li>
-                <li>{props.song.artist}</li>
-                <li>{props.song.album}</li>
-                <li>{props.song.genre}</li>
-                <DeleteSongBtn deleteSongIdProp={song_id}/>
-               
-                <button onClick={showUpdateSongFormClick}>show update song form </button>
-           
-                {
-                    showUpdateSongForm && <UpdateSongInfoForm updateSongIdProp={song_id} UpdateSongInfoFormSubmitProp={formSubmitFn}/>
-                } 
+        <div className='card'>
+            <div className='card-body'>
+                <ul>
+                    <li>{props.indexProp+1}</li>
+                    <li className='card-title'>{props.song.title}</li>
+                    <div className='card-content'>
+                        <li>{props.song.artist}</li>
+                        <li>{props.song.album}</li>
+                        <li className='song-genre'>{props.song.genre}</li>
+                    </div>
+                    
+                    <div className='flex card-buttons'>
+                        <DeleteSongBtn deleteSongIdProp={song_id} getAllSongsProp={props.getAllSongsProp}/>
+                
+                        <button onClick={showUpdateSongFormClick} className="card-button">update song</button>
+                    </div>
+                        
+            
+                    {
+                        showUpdateSongForm && <UpdateSongInfoForm updateSongIdProp={song_id} UpdateSongInfoFormSubmitProp={formSubmitFn}/>
+                    } 
 
-            </ul>
+                </ul>
+            </div>
+
         </div>
     );
 }

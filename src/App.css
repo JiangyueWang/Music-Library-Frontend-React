@@ -42,21 +42,21 @@ nav {
 }
 .logo {
     width: 85px;
-    padding: 1rem 2rem;
+    padding: 10px 15px;
     margin-left: 3rem;
     color: #373e98;
     background-color: #fff;
     border: 2px solid #fff;
-    border-radius: 50px 20px;
+    border-radius: 40px 10px;
 }
 .sign-in-logos{
     width: 75px;
     margin-right: 3rem;
-    padding: 1rem 2rem;
-    color: #373e98;
+    padding: 10px 15px;
+    color: hsl(236, 47%, 41%);
     background-color: #fff;
     border: 2px solid #fff;
-    border-radius: 20px 50px;
+    border-radius: 10px 40px;
     
 }
 .signin{
@@ -114,4 +114,37 @@ nav {
 
 .add-new-song-button {
     margin-top: 2rem;
+}
+
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+}
+.card {
+    margin: 2rem 1rem;
+    box-shadow: 0 3px 8px hsl(236, 47%, 41%, 0.5);
+}
+.card-title {
+    font-weight: 900;
+    font-size: large;
+
+}
+.card-content {
+    font-weight: 500;
+    font-size: medium;
+
+}
+.song-genre {
+    font-size: 13px;
+    margin-top: 5px;
+    margin-bottom: 30px;
+}
+.card-button {
+    background-color: #CEB92C;
+    padding: 0.5rem 1.8rem;
+    border: solid white 1px;
+    border-radius: 1.5rem;
+    font-size: 13PX;
+    font-weight: 500;
 }

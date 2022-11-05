@@ -4,14 +4,11 @@ import Song from '../Song/Song';
 const DisplayMusic = (props) => {
     if (props.songs.length > 1) {
             return (
-            <div>
+            <div className='grid'>
                 {
-                    props.songs.map((song) => {
+                    props.songs.map((song, index) => {
                         return  (
-                            <div>
-                                <Song song={song} key={song.id} getAllSongsProp={props.getAllSongsProp}/>
-                            </div>
-                        
+                                <Song song={song} key={props.songs.id} indexProp={index} getAllSongsProp={props.getAllSongsProp}/>
                         )}
                     )
                 }

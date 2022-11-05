@@ -8,6 +8,7 @@ const DeleteSongBtn = (props) => {
         // props.DeleteSongBtnProp(isClick)
         // console.log('isClick in deleteSongBtn component', isClick)
         deleteSongfn();
+        props.getAllSongsProp();
     }
     async function deleteSongfn() {
         // click delete button will send a Delete request to the database with id of the delete button is attached to
@@ -26,7 +27,7 @@ const DeleteSongBtn = (props) => {
 
     return (  
     <div>
-        <button type='button' onClick={handleDeleteClick}>delete this song</button>
+        <button type='button' onClick={handleDeleteClick} className="card-button">delete song</button>
     </div>);
 }
  

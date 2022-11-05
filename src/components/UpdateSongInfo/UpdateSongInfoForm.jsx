@@ -25,7 +25,8 @@ const UpdateSongInfoForm = (props) => {
         // window.location.reload(true);
     }
     return (
-        <form onSubmit={handleUpdateSongFormSubmission}>
+        <div className='flex'>
+            <form onSubmit={handleUpdateSongFormSubmission} className="add-new-song-form flex">
             <label>Title</label>
             <input onChange={(event) => setTitle(event.target.value)}></input>
             <label>Artist</label>
@@ -36,9 +37,11 @@ const UpdateSongInfoForm = (props) => {
             <input onChange={(event) => setReleaseDate(event.target.value)}></input>
             <label>Genre</label>
             <input onChange={(event) => setGenre(event.target.value)}></input>
-            <button type='submit'>add a new song</button>
+            <button type='submit' className='btn btn-secondary btn-lg'>update</button>
         </form>
     
+        </div>
+
     );
 }
  
